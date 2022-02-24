@@ -10,8 +10,10 @@
   "author": "Amolo Joseph",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "express": "^4.17.2",
+    "gravatar": "^1.8.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.8",
     "passport": "^0.5.2",

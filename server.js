@@ -1,34 +1,36 @@
 const express = require("express");
-const mongoose = require('mongoose');
-
+const mongoose = require("mongoose");
+const passpsort = require("passport");
 
 //import route files
-const users = require('./routes/api/user');
-const profile = require('./routes/api/profile');
-const posts = require('./routes/api/post');
+const users = require("./routes/api/user");
+const profile = require("./routes/api/profile");
+const posts = require("./routes/api/post");
 
 const app = express();
 
+// Express bodyParser middleware
+app.use(express.urlencoded({ extended: false }));
 
 //DB config
-const db = require('./config/keys').mongoURI;
+const db = require("./config/keys").mongoURI;
 
-//connect to mongodb atlas 
+//connect to mongodb atlas
 mongoose
-    .connect(db)
-    .then(() => console.log('Database Connected'))
-    .catch(err => console.log(err));
+  .connect(db)
+  .then(() => console.log("Database Connected"))
+  .catch((err) => console.log(err));
 
+//Passport middleware
+app.use(passpsort.initialize());
 
-//Routes middleware 
-app.use('/api/users', users);
-app.use('/api/profile', profile);
-app.use('/api/posts', posts);
+//Passport Config
+require("./config/passport")(passpsort);
 
-
-app.get("/", (req, res) => {
-  res.send("Hello from dev");
-});
+//Routes middleware
+app.use("/api/users", users);
+app.use("/api/profile", profile);
+app.use("/api/posts", posts);
 
 const port = process.env.PORT || 5000;
 
