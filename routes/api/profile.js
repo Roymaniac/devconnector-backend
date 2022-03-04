@@ -180,7 +180,7 @@ router.post(
 
     //check validation
     if (!isValid) {
-      res.status(400).json(errors);
+      return res.status(400).json(errors);
     }
 
     Profile.findOne({ user: req.user.id }).then((profile) => {
@@ -217,7 +217,7 @@ router.post(
 
     //check validation
     if (!isValid) {
-      res.status(400).json(errors);
+      return res.status(400).json(errors);
     }
 
     Profile.findOne({ user: req.user.id }).then((profile) => {
@@ -272,7 +272,7 @@ router.delete(
 
 // @route   DELETE api/profile/education/:edu_id
 // @desc    Remove education from profile route
-// @access  Public
+// @access  Private
 
 router.delete(
   "/education/:edu_id",
@@ -300,7 +300,7 @@ router.delete(
 
 // @route   DElete api/profile/
 // @desc    Remove user & profile route
-// @access  Public
+// @access  Private
 
 router.delete(
   "/",
