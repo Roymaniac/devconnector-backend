@@ -6,8 +6,12 @@ const passpsort = require("passport");
 const users = require("./routes/api/user");
 const profile = require("./routes/api/profile");
 const posts = require("./routes/api/post");
+const cors = require("cors");
 
 const app = express();
+
+// Cors middleware
+app.use(cors());
 
 // Express bodyParser middleware
 app.use(express.urlencoded({ extended: false }));
