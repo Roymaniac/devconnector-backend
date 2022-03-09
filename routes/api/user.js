@@ -21,7 +21,7 @@ const saltRounds = 10;
 
 router.get("/test", (req, res) => res.json({ msg: "Users Retrieved" }));
 
-// @route   GET api/users/register
+// @route   POST api/users/register
 // @desc    Register users route
 // @access  Public
 
