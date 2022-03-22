@@ -1,5 +1,4 @@
 module.exports = {
-  mongoURI:
-    "mongodb+srv://awele:jomV5FjbufRmbEw7@devconnect.bjcni.mongodb.net/devconnect?retryWrites=true&w=majority",
-  secretOrKey: "secret",
+    mongoURI: process.env.MONGO_URI,
+    secretOrKey: "secret",
 };
