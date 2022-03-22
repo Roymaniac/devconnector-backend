@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const passpsort = require("passport");
+const expressValidator = require("express-validator");
 require("dotenv").config();
 
 //import route files
@@ -16,6 +17,9 @@ app.use(cors());
 
 // Express bodyParser middleware
 app.use(express.urlencoded({ extended: false }));
+
+//express-validator middleware
+//app.use(expressValidator());
 
 //DB config
 const db = require("./config/keys").mongoURI;
