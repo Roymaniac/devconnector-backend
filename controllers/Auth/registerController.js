@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 // Load User model
 const User = require("../../models/User");
 
-const saltRounds = 10;
+const saltRounds = Number(process.env.SALT);
 
 /**
  *
